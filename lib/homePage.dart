@@ -47,7 +47,7 @@ void _navigateBottomNavBar(int index){
     return  Scaffold(
       body: _list[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Colors.white,
+        fixedColor: Colors.black,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
         onTap: _navigateBottomNavBar,

@@ -26,6 +26,8 @@ class userAccount extends StatefulWidget {
 }
 
 class _userAccountState extends State<userAccount> {
+    int _selectedIndex = 0;
+
   final List<User> users = [
     User(
         name: 'User',
@@ -197,15 +199,35 @@ class _userAccountState extends State<userAccount> {
             ),
           ),
             TabBar(
+              onTap: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
               tabs: [
                 Tab(
-                  icon: SvgIconWidget(svgGrid),
+                  icon: AnimatedSwitcher(
+                    duration: Duration(milliseconds: 300),
+                    child: _selectedIndex == 0
+                        ? SvgIconWidget(svgGrid) // Selected icon
+                        : SvgIconWidget(svgGrid,svgColor: ColorFilter.mode(Colors.grey[700]!, BlendMode.srcIn)), // Unselected icon
+                  ),
                 ),
                 Tab(
-                  icon: SvgIconWidget(svgReel),
+                  icon: AnimatedSwitcher(
+                    duration: Duration(milliseconds: 300),
+                    child: _selectedIndex == 1
+                        ? SvgIconWidget(svgReel) // Selected icon
+                        : SvgIconWidget(svgReel, svgColor: ColorFilter.mode(Colors.grey[700]!, BlendMode.srcIn)), // Unselected icon
+                  ),
                 ),
                 Tab(
-                  icon: SvgIconWidget(svgPerson),
+                  icon: AnimatedSwitcher(
+                    duration: Duration(milliseconds: 300),
+                    child: _selectedIndex == 2
+                        ? SvgIconWidget(svgPerson) // Selected icon
+                        : SvgIconWidget(svgPerson,svgColor: ColorFilter.mode(Colors.grey[700]!, BlendMode.srcIn)), // Unselected icon
+                  ),
                 ),
               ],
               indicatorColor: Colors.black,
