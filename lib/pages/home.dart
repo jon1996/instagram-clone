@@ -37,14 +37,15 @@ class _userHomeState extends State<userHome> {
         isUser: true,
         stories: [],
         avatar:
-            'https://practicaltyping.com/wp-content/uploads/2020/02/ichigo.jpg'),
+            'https://practicaltyping.com/wp-content/uploads/2020/02/ichigo.jpg', isNormalUser: false),
     User(
         name: 'Gojo',
         isUser: false,
+        isNormalUser: false,
         stories: [
           Story(
               imageUrl:
-                  'https://practicaltyping.com/wp-content/uploads/2020/02/ichigo.jpg'),
+                  'https://practicaltyping.com/wp-content/uploads/2020/02/ichigo.jpg',),
           Story(text: 'Hello from Gojo!'),
         ],
         avatar: 'https://images.alphacoders.com/127/thumb-1920-1272715.png'),
@@ -52,6 +53,7 @@ class _userHomeState extends State<userHome> {
     User(
         name: 'toji',
         isUser: false,
+        isNormalUser: false,
         stories: [
           Story(
               imageUrl:
@@ -152,7 +154,7 @@ class _userHomeState extends State<userHome> {
                 final user = users[index];
                 return GestureDetector(
                   onTap: () {
-                    _viewStory(user);
+                        
                   },
                   child: BubbleStories(
                     user: user,

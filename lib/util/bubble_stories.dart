@@ -22,14 +22,14 @@ class BubbleStories extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 8,right: 8,top: 8),
+            padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
             child: Stack(
               children: [
                 Container(
                   padding: EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    gradient: user.hasGradient
+                    gradient: user.hasGradient && !user.isNormalUser
                         ? LinearGradient(
                             colors: [Colors.purple, Colors.orange],
                             begin: Alignment.topLeft,
@@ -41,10 +41,9 @@ class BubbleStories extends StatelessWidget {
                     radius: 30,
                     backgroundImage: NetworkImage(user.avatar), // Show avatar by default
                     backgroundColor: Colors.grey[300],
-                    
                   ),
                 ),
-                if (user.isUser)
+                if (user.isUser && !user.isNormalUser)
                   Positioned(
                     bottom: 0,
                     right: 0,

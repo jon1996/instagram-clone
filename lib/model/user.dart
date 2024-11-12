@@ -10,12 +10,16 @@ class User {
   final bool isUser;
   final String avatar;
   final List<Story> stories;
-  bool hasGradient = true; // To control the gradient after viewing
+  bool hasGradient = true; 
+  bool isNormalUser = false;
 
   User({
     required this.name,
     required this.isUser,
     required this.avatar,
     required this.stories,
+    required this.isNormalUser,
   });
 }
+
+
