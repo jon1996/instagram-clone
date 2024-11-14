@@ -1,52 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Myappbar extends StatelessWidget {
+import '../model/user_data.dart';
 
+class Myappbar extends StatelessWidget {
+  final UserInfo? userInfo;
+  Myappbar({ this.userInfo});
   @override
   Widget build(BuildContext context) {
     return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
           children: [
-            Row(
-              children: [
-                Text(
-                  "Ichigo Kurosaki",
-                  style: TextStyle(
-                    fontFamily: 'Instagram Sans Headline',
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Icon(Icons.keyboard_arrow_down),
-              ],
+            Text(
+              userInfo?.nickname ?? "",
+              style: const TextStyle(
+                fontFamily: 'Instagram Sans Headline',
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: threadIcon(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.add_rounded,
-                    color: Colors.black,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.menu,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
+            const Icon(Icons.keyboard_arrow_down),
+          ],
+        ),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: threadIcon(),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.add_rounded,
+                color: Colors.black,
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
             ),
           ],
-        );
-      
+        ),
+      ],
+    );
   }
 }
 
@@ -75,11 +77,11 @@ class threadIcon extends StatelessWidget {
                 borderRadius: BorderRadius.circular(
                     10), // Adjust the radius for the circular shape
               ),
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 minWidth: 20,
                 minHeight: 20,
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   '9+',
                   style: TextStyle(
